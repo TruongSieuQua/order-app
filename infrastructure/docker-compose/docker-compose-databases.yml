@@ -1,0 +1,22 @@
+services:
+  postgresdb:
+    image: postgres:13.16
+    container_name: postgresdb
+    hostname: postgresdb
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin159@
+      LANG: en_US.utf8
+    volumes:
+      - postgresdb-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      -  postgresdb-network
+
+volumes:
+  postgresdb-data:
+
+networks:
+  postgresdb-network:
+    driver: bridge
